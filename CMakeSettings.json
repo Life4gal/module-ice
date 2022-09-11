@@ -1,0 +1,15 @@
+{
+  "configurations": [
+	{
+	  "name": "OUT-Native-Debug-MSVC",
+	  "generator": "Visual Studio 17 2022 Win64",
+	  "configurationType": "Debug",
+	  "buildRoot": "${projectDir}\\${name}\\build",
+	  "installRoot": "${projectDir}\\${name}\\install",
+	  "cmakeCommandArgs": "-DCMAKE_BUILD_TYPE:STRING=\"Debug\"",
+	  "buildCommandArgs": "",
+	  "ctestCommandArgs": "",
+	  "inheritEnvironments": [ "msvc_x64_x64" ]
+	}
+  ]
+}
