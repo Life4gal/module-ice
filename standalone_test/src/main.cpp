@@ -23,5 +23,6 @@ using namespace spdlog;
 
 int main()
 {
-	info("int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
+	// info("int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
+	info("hello world");
 }

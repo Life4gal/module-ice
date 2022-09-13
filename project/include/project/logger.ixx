@@ -21,13 +21,13 @@ namespace my::project::logger
 	namespace logger_detail
 	{
 #ifndef GSL_NO_LOGGER
-		template<typename... Args>
-		using format_string_t = spdlog::format_string_t<Args...>;
+			template<typename... Args>
+			using format_string_t = spdlog::format_string_t<Args...>;
 #else
-		template<typename... Args>
-		struct format_string_t
-		{
-		};
+			template<typename... Args>
+			struct format_string_t
+			{
+			};
 #endif
 	}// namespace logger_detail
 
@@ -41,10 +41,22 @@ namespace my::project::logger
 			GSL_LOGGER_DO(spdlog::trace(fmt, std::forward<Args>(args)...);)
 		}
 
+		template<typename T>
+		void trace(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::trace(message);)
+		}
+
 		template<typename... Args>
 		void debug([[maybe_unused]] logger_detail::format_string_t<Args...> fmt, [[maybe_unused]] Args && ... args)
 		{
 			GSL_LOGGER_DO(spdlog::debug(fmt, std::forward<Args>(args)...));
+		}
+
+		template<typename T>
+		void debug(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::debug(message);)
 		}
 
 		template<typename... Args>
@@ -53,10 +65,22 @@ namespace my::project::logger
 			GSL_LOGGER_DO(spdlog::info(fmt, std::forward<Args>(args)...));
 		}
 
+		template<typename T>
+		void info(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::info(message);)
+		}
+
 		template<typename... Args>
 		void warn([[maybe_unused]] logger_detail::format_string_t<Args...> fmt, [[maybe_unused]] Args && ... args)
 		{
 			GSL_LOGGER_DO(spdlog::warn(fmt, std::forward<Args>(args)...));
+		}
+
+		template<typename T>
+		void warn(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::warn(message);)
 		}
 
 		template<typename... Args>
@@ -65,10 +89,22 @@ namespace my::project::logger
 			GSL_LOGGER_DO(spdlog::error(fmt, std::forward<Args>(args)...));
 		}
 
+		template<typename T>
+		void error(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::error(message);)
+		}
+
 		template<typename... Args>
 		void critical([[maybe_unused]] logger_detail::format_string_t<Args...> fmt, [[maybe_unused]] Args && ... args)
 		{
 			GSL_LOGGER_DO(spdlog::critical(fmt, std::forward<Args>(args)...));
+		}
+
+		template<typename T>
+		void critical(const T& message)
+		{
+			GSL_LOGGER_DO(spdlog::critical(message);)
 		}
 
 		// constexpr int logger_fatal_exit_code = -42;

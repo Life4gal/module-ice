@@ -37,20 +37,20 @@ set_compile_options_private(${PROJECT_NAME})
 turn_off_warning(${PROJECT_NAME})
 
 include(${CMAKE_3RDPARTY_PATH}/spdlog.cmake)
-#include(${CMAKE_3RDPARTY_PATH}/fmtlib.cmake)
+include(${CMAKE_3RDPARTY_PATH}/fmtlib.cmake)
 
-#target_compile_definitions(
-#	${PROJECT_NAME}
-#	PUBLIC
-#
-#	SPDLOG_FMT_EXTERNAL
-#)
+target_compile_definitions(
+	${PROJECT_NAME}
+	PUBLIC
+
+	SPDLOG_FMT_EXTERNAL
+)
 
 target_link_libraries(
 	${PROJECT_NAME}
 	PUBLIC
 
-	#fmt::fmt
+	fmt::fmt
 	# spdlog
 	spdlog_header_only
 )
